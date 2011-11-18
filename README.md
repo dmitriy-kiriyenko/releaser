@@ -22,7 +22,8 @@ the codename if you are not using any. This will tag a commit and push the tag t
 You have `--no-push` option not to do the last step. Running it with `-p` will
 issue it in "pretend" mode, without actual making changes.
 
-To issue a minor release, you should run `releaser minor`. It has the same options as `major`, except the codename.
+To issue a minor release, you should run `releaser minor`.
+It has the same options as `major`, except the codename.
 
 To get the current version just type `release`. Try `-v` for more verbosity.
 
