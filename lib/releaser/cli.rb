@@ -13,7 +13,6 @@ module Releaser
 
     desc "major [CODENAME]", "Issue a major release"
     def major(codename = "")
-      codename = ask "Please, give a codename: " unless codename.present?
       new_version = version_from_tag_to_release.new_major(codename)
       message = options.message.presence || "Major release: #{new_version}"
       tag(new_version.to_tagline, :message => message)
