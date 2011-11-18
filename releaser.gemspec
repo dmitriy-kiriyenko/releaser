@@ -25,4 +25,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "thor"
   s.add_runtime_dependency "activesupport"
   s.add_runtime_dependency "railties"
+  s.add_runtime_dependency "capistrano"
 end
