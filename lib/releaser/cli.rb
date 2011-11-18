@@ -1,4 +1,5 @@
-require "active_support/core_ext/object/blank"
+require 'thor'
+require 'active_support/core_ext/object/blank'
 require 'rails/generators/actions'
 
 module Releaser
