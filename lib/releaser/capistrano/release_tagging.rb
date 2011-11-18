@@ -1,7 +1,7 @@
 namespace :releaser do
   desc "Write current revision to CURRENT_VERSION file."
   task :write_current do
-    version = run_locally("bundle exec releaser info --no-verbose").chomp
+    version = self[:current_revision]
     run "echo \"#{version}\" > #{release_path}/CURRENT_VERSION"
   end
 
@@ -11,6 +11,10 @@ namespace :releaser do
 end
 
 on :load do
+  set :current_revision do
+    run_locally("bundle exec releaser info --no-verbose").chomp
+  end
+
   if fetch(:write_version, false)
     after "deploy:symlink", "releaser:write_current"
   end
