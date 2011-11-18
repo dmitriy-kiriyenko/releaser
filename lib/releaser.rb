@@ -1,10 +1,7 @@
 require "releaser/version"
 require "releaser/revision"
 require "releaser/cli"
-
-class AlreadyReleasedError < StandardError
-end
+require "releaser/from_file"
 
 module Releaser
-  # Your code goes here...
 end

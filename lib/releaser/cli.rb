@@ -2,6 +2,9 @@ require 'thor'
 require 'active_support/core_ext/object/blank'
 require 'rails/generators/actions'
 
+class AlreadyReleasedError < StandardError
+end
+
 module Releaser
   class CLI < ::Thor
     include Thor::Actions
