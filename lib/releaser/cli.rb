@@ -55,7 +55,7 @@ module Releaser
 
     def version_from_tag
       tagline = `git describe --match \"v[0-9]*\" --long`.chomp
-      Version.new(tagline)
+      Revision.new(tagline)
     end
 
     def tag(tag, config = {})
