@@ -15,11 +15,11 @@ on :load do
     run_locally("bundle exec releaser info --no-verbose").chomp
   end
 
-  if fetch(:write_version, false)
+  if fetch(:write_version, true)
     after "deploy:symlink", "releaser:write_current"
   end
 
-  if fetch(:tag_deploy_commit, false)
+  if fetch(:tag_deploy_commit, true)
     before "deploy:update_code", "releaser:tag_deploy_commit"
   end
 end
