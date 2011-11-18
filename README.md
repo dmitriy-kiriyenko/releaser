@@ -1,5 +1,7 @@
 # Releaser #
 
+[![Build Status](http://travis-ci.org/dmitriy-kiriyenko/releaser.png)](http://travis-ci.org/dmitriy-kiriyenko/releaser)
+
 Very often we need to monitor versions of application. This gem helps to
 do it.
 
