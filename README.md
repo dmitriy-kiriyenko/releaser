@@ -31,14 +31,18 @@ verbosity.
 
 Add
 
-```ruby require 'releaser/capistrano' ```
+```ruby
+require 'releaser/capistrano'
+```
 
 to your `config/deploy.rb` file. This will automagically tag your deploy
 commits and push it. Also it will write current revision to the file
 `CURRENT_VERSION` in your application directory. To get it from
 application, issue
 
-```ruby Releaser::FromFile.new.version("no version") ```
+```ruby
+Releaser::FromFile.new.version("no version")
+```
 
 with an optional argument for a default string (default is
 "development").
