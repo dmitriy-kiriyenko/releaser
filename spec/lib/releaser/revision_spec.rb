@@ -104,7 +104,6 @@ describe Releaser::Revision do
       end
 
       it "should correctly return next major version without codename" do
-        subject.next_major.to_s.should == "v7.0"
         verify_revision(subject.next_major, {
           :major => 7,
           :minor => 0,
