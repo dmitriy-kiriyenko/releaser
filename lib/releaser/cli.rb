@@ -11,7 +11,8 @@ module Releaser
     include Rails::Generators::Actions
     add_runtime_options!
     class_option :message, :type => :string, :aliases => "-m", :desc => "Specify a tag message (-m option for git tag)"
-    class_option :push, :type => :boolean, :default => true
+    class_option :object, :type => :string, :aliases => "-o", :desc => "Specify a tag object (which commit to tag with version)"
+    class_option :push, :type => :boolean, :default => true, :desc => "Whether to push the commit (provide --no-push to override)"
     default_task :info
 
     desc "major [CODENAME]", "Issue a major release"
@@ -66,7 +67,7 @@ module Releaser
         opts.push "-f" if config[:force]
       end
 
-      run "git tag #{tag_options.join(" ")} -- #{tag}"
+      run "git tag #{tag_options.join(" ")} -- #{tag} #{options.object}"
       run "git push origin #{tag}" if options.push?
     end
 
