@@ -16,7 +16,7 @@ on :load do
   end
 
   if fetch(:write_version, true)
-    after "deploy:symlink", "releaser:write_current"
+    after "deploy:create_symlink", "releaser:write_current"
   end
 
   if fetch(:tag_deploy_commit, true)
