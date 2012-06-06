@@ -16,7 +16,7 @@ module Releaser
     default_task :info
 
     desc "major [CODENAME]", "Issue a major release"
-    def major(codename = "")
+    def major(codename = nil)
       new_version = version_from_tag_to_release.new_major(codename)
       message = options.message.presence || "Major release: #{new_version}"
       tag(new_version.to_tagline, :message => message)
