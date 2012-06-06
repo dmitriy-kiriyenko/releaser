@@ -6,7 +6,7 @@ namespace :releaser do
   end
 
   task :tag_deploy_commit do
-    run_locally "bundle exec releaser deploy --push --object=#{branch}"
+    run_locally "bundle exec releaser deploy --push --object=#{real_revision}"
   end
 end
 
