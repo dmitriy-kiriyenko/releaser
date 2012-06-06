@@ -126,7 +126,7 @@ describe Releaser::Revision do
         })
       end
 
-      it "should correctly return next minor version without codename" do
+      it "should correctly return next minor version" do
         verify_revision(subject.next_minor, {
           :major => 6,
           :minor => 2,
