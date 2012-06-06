@@ -77,6 +77,20 @@ describe Releaser::Revision do
         its(:to_tagline) { should == "v6.1-Edison" }
         its(:to_deploy_tagline) { should == "v6.1" }
       end
+
+      context "without codename" do
+        subject {clazz.new "v6.1-20-gf7114dd"}
+        its(:to_s) { should == "v6.1.20" }
+        its(:to_tagline) { should == "v6.1.20" }
+        its(:to_deploy_tagline) { should == "v6.1.20" }
+      end
+
+      context "without codename and initial build" do
+        subject {clazz.new "v6.1-0-gf7114dd"}
+        its(:to_s) { should == "v6.1" }
+        its(:to_tagline) { should == "v6.1" }
+        its(:to_deploy_tagline) { should == "v6.1" }
+      end
     end
 
     describe "current" do
