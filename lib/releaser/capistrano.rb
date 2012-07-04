@@ -7,6 +7,10 @@ Capistrano::Configuration.instance(:must_exist).load do
     end
 
     task :tag_deploy_commit do
+      on_rollback do
+        run_locally "bundle exec releaser undo_deploy --push --object=#{real_revision}"
+      end
+
       run_locally "bundle exec releaser deploy --push --object=#{real_revision}"
     end
   end

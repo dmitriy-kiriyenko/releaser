@@ -36,6 +36,10 @@ module Releaser
       # no actions required
     end
 
+    def undo_deploy
+      delete_tag(version_from_tag_to_release.to_deploy_tagline)
+    end
+
     desc "info", "Get current version"
     method_option :verbose, :type => :boolean, :default => false, :aliases => "-v"
     def info
@@ -69,6 +73,11 @@ module Releaser
 
       run "git tag #{tag_options.join(" ")} -- #{tag} #{options.object}"
       run "git push origin #{tag}" if options.push?
+    end
+
+    def delete_tag
+      run "git tag --delete -- #{tag}"
+      run "git push origin :#{tag}" if options.push?
     end
 
   end
