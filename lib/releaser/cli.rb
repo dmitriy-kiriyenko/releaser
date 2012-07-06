@@ -36,6 +36,7 @@ module Releaser
       # no actions required
     end
 
+    desc "undo_deploy", "Untag current commit if deploy failed"
     def undo_deploy
       delete_tag(version_from_tag_to_release.to_deploy_tagline)
     end
