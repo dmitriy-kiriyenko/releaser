@@ -76,7 +76,7 @@ module Releaser
       run "git push origin #{tag}" if options.push?
     end
 
-    def delete_tag
+    def delete_tag(tag)
       run "git tag --delete -- #{tag}"
       run "git push origin :#{tag}" if options.push?
     end
