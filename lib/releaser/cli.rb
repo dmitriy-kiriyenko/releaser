@@ -29,6 +29,13 @@ module Releaser
       tag(new_version.to_tagline, :message => message)
     end
 
+    desc "patch", "Issue a patch release"
+    def patch
+      new_version = version_from_tag_to_release.new_patch
+      message = options.message.presence || "Patch release: #{new_version}"
+      tag(new_version.to_tagline, :message => message)
+    end
+
     desc "deploy", "Tag current commit for a deploy"
     def deploy
       tag(version_from_tag_to_release.to_deploy_tagline, :force => true)
